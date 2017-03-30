@@ -1,6 +1,4 @@
-
-# Welcome to sample1!
-
 ---
 layout: hubpage
 ---
+# Welcome to sample1!
