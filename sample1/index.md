@@ -1,4 +1,4 @@
 ---
-layout: hubpage
+layout: HubPage
 ---
 # Welcome to sample1!
