@@ -1,6 +1,6 @@
 # OPS build E2E Test cases and descriptions
 
-## Regression automaiton build test cases
+## Automaiton Regression build test cases
 
 **Reference repos**
 
@@ -99,15 +99,61 @@ Following are the regression automation test cases. You can see the report [here
         * Pages has been generated under root/_sites folder
         * The build result is OK
 
+12. [Provision]New Docset (new repo)
+
+    - **Description**: Verify LICENSE,LICENSE-CODE and READM.md file for Docs
+    - **Check Points**:
+        * Build results should be successful in master branch;Build results should be no built in live branch (sometimes,          it will, but the result is warning. The live will trigger build because GitHub api call is asynchronous) 
+        * The en-us repo will be created in the OPS portal https://opportal-sandbox.azurewebsites.net/#/repos/  
+          The docset will be created in the ops portal.
+        * Repo check (master and live) 
+            1. Folder: Docset Folder
+            2. File: ".gitignore",".openpublishing.build.ps1",".openpublishing.publish.config.json" exist in the top of the repo.
+        * Docset check (master and live)
+            1. File: "docfx.json","Index.md","TOC.md" exist in Docset Folde.
+        * Check content about above #3 and #4 files.
+        * New published content page can be visited in master.No published content in live.       
+
+13. [Provision]De-provision en-us repo
+
+    - **Description**: Remove web hook and disconnect this repo from OPS. The physical files in this repo will not be deleted,                      including the OPS config files, you can delete them later by yourself.
+    - **Check Points**:
+        * No this en-us repo in OPS.
+        * No this docset in OPS 
+        * No new commit build in this repo (master and live).The physical files in this repo will not be deleted, including the OPS config files.
+        * Published topics are unavailable online in master.
+        * Webhook of en-us repository will be removed on GitHub.
+
+14. [Provision]De-provision en-us docset
+
+    - **Description**: Delete this docset from all its repos, delete all published content. Source files will not be                                touched.Note:we will not delete published topics when we deprovision localized docsets
+    - **Check Points**:
+        * No this en-us repo in OPS (because we don’t allow empty repos in our system) 
+        * No this docset in OPS.
+        * No new commit build in this repo.
+        * Published topics are unavailable online in master.
+
 12. [Provision] User add locale in existing repo and do provision for this locale.
 
     - **Description**: New repo will be created and provisioned.
-    - **Check Points**: Topic reference a topic not in loc repo. Should be fallback to default locale.
+    - **Check Points**: 
+        * Topic reference a topic not in loc repo. Should be fallback to default locale.
+        * New repo will be created in the ops portal(master branch and live branch).
+        * Build results should be successful in master branch.
+        * For docs, the template repository config in .op.config will use corresponding locale instead of en-us.
+        * En-us repository will be added in .op.config as fallback repository.
+        * Locale in .op.config will be updated to provisioned locale.
 
 12. [Provision] User de-provision the repo
 
     - **Description**:
+        * The published topics are still available online until you de-provision en-us repo too, or delete the files manually      from localized repo before de-provisioning.
+        * If your repo is on Open Localization (OL), please remove its locale from OL translation config before de-provisioning    in OPS.
     - **Check Points**:
+        * No localized repo in OPS portal.
+        * The content on this repo will not be touched,.openpublishing.publish.config.json and openpublishing.build.ps1 will be    not changed(no new commit in this repo) (master and live).
+        * Published topics are still available online in master(check content page.
+        * Webhook of localized repository will be removed on GitHub.
 
 13. [Provision] User changes docset config
 
@@ -125,16 +171,13 @@ Following are the regression automation test cases. You can see the report [here
     - **Description**: 
     - **Check Points**:
         * If token/code snippets doesn't exist in localized repository but only in fallback repository.
-        * The build can still pass The content should be rendered OK except the token/code snippets is same with fallback repository.
+        * The build can still pass The content should be rendered OK except the token/code snippets is same with fallback          repository.
 
 16. [Cross-repository] include source files from another repo
 
     - Similar with the above one
 
-17. [Cross-repository] Syncing between repos 
-
-
-## Regression Test Cases for Deployment
+## Manual Regression Test Cases for Deployment
 
  > [!NOTE]
  > The regression test cases need to running after PPE and Production deploayment every sprint.
