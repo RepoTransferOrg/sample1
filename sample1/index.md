@@ -1,4 +1,4 @@
-# Test Config
+# How To Running OPS E2E Test Cases
 
  Please follow the steps to setup the testing environment.
 
@@ -8,16 +8,16 @@
  ## Download the Project
  [Project Address](https://mseng.visualstudio.com/VSChina/VSChina%20Team/_git/OpenPublishing.E2ETesting). You can clone the repo with *"git clone* {clone url}" command into your directory.
 
- ## Install opse2e tool
+ ## Install opse2e Tool
  [Opse2e](https://mseng.visualstudio.com/VSChina/VSChina%20Team/_git/Templating.E2ETools) is a private nodejs package, please go to [VSO WebComponents management page](https://mseng.visualstudio.com/DefaultCollection/VSChina/Templating/_packaging?feed=WebComponents&package=8316a24e-039a-496d-a3d3-125e7cdf1a8d&version=0bdaa70c-ecc7-4e3b-b68f-5a188988ce26&_a=package) to get your npmrc credential. See the steps.
- 1.Click ‘Connect to feed’ button and then 'Generate npm credentials', 
- 2.Finally copy the credential text to a **.npmrc** file and saved to user home directory. (such as C:\Users\jinbwan\.npmrc)
+ 1. Click ‘Connect to feed’ button and then 'Generate npm credentials', 
+ 2. Finally copy the credential text to a **.npmrc** file and saved to user home directory. (such as C:\Users\jinbwan\.npmrc)
 
  Opse2e is a cli-based tool, you could run the following command to exec e2e cases.  
- 1.*npm run opse2e init*    
+ 1. *npm run opse2e init*    
  It does something like ‘webdriver-manager update’, but download chrome driver to current node_modules directory. This command just need run once.
 
- 2.*npm run opse2e protractor*  
+ 2. *npm run opse2e protractor*  
  
  It’s kind of similar as previous ‘gulp e2e’. But the good thing is you don’t need start a standalone selenium server any longer.  
 
@@ -25,7 +25,7 @@
 
  More information about the command could be got via '--help' options.  
 
- ## Running the test cases
+ ## Running the Test Cases
  You can running the test cases with optional parms. For example:  
  *npm run opse2e -- protractor --suite pullRequest --baseUrl https://ops.microsoft.com/ --branch develop*  
  Please see the more information about the command:
