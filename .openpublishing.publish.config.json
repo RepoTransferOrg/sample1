@@ -31,5 +31,9 @@
       "branch_mapping": {}
     }
   ],
+  "branch_target_mapping": 
+    {
+    "testpdf": ["Publish", "Pdf"]
+    },
   "need_generate_pdf_url_template": false
 }
