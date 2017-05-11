@@ -32,7 +32,7 @@
     }
   ],
   "branch_target_mapping": {
-    "testpdf": [
+    "testpd": [
       "Publish",
       "Pdf"
     ], 
