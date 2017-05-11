@@ -22,7 +22,7 @@
   "notification_subscribers": [],
   "branches_to_filter": [],
   "skip_source_output_uploading": false,
-  "need_preview_pull_request": true,
+  "need_preview_pull_request": false,
   "dependent_repositories": [
     {
       "path_to_root": "_themes",
@@ -33,6 +33,10 @@
   ],
   "branch_target_mapping": {
     "testpdf": [
+      "Publish",
+      "Pdf"
+    ],
+    "live": [
       "Publish",
       "Pdf"
     ]
