@@ -31,11 +31,6 @@
       "branch_mapping": {}
     }
   ],
-  "Targets": {  
-    "Pdf": {  
-    "template_folder": "_themes.pdf"  
-    }  
-   },
   "branch_target_mapping": {
     "testpd": [
       "Publish",
