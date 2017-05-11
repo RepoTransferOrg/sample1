@@ -32,10 +32,8 @@
     }
   ],
   "branch_target_mapping": {
-    "testpdf": [
-      "Publish",
-      "Pdf"
-    ]
+    "testpdf": ["Publish","Pdf"],
+    "live": ["Publish", "Pdf"]
   },
-  "need_generate_pdf_url_template": false
+  "need_generate_pdf_url_template": true
 }
